@@ -7,6 +7,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ElDelete: typeof import('element-plus/es')['ElDelete']
+    ElEdit: typeof import('element-plus/es')['ElEdit']
+    ElIconDelete: typeof import('@element-plus/icons-vue')['Delete']
+    ElIconEdit: typeof import('@element-plus/icons-vue')['Edit']
+    ElIconSearch: typeof import('@element-plus/icons-vue')['Search']
+    ElIconShare: typeof import('@element-plus/icons-vue')['Share']
+    ElSearch: typeof import('element-plus/es')['ElSearch']
+    ElShare: typeof import('element-plus/es')['ElShare']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
