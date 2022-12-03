@@ -1,14 +1,33 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ChooseIconComp } from "./components/index";
+
+const currentComp = shallowRef(ChooseIconComp);
+const isShowChooseArea = ref(false);
+function chooseArea(vals: string[]) {
+  console.log("已选择的省市区: ", vals);
+}
+
+function changeComp(compName: string) {
+  if (compName === "ChooseIconComp") {
+    currentComp.value = ChooseIconComp;
+    isShowChooseArea.value = false;
+  } else if (compName === "ChooseAreaComp") {
+    isShowChooseArea.value = true;
+  }
+}
+</script>
 
 <template>
-  <div style="font-size: 20px">
-    <!-- 由于SVG图标默认不携带任何属性 -->
-    <!-- 你需要直接提供它们 -->
-    <el-icon-edit style="width: 1em; height: 1em; margin-right: 8px" />
-    <el-icon-share style="width: 1em; height: 1em; margin-right: 8px" />
-    <el-icon-delete style="width: 1em; height: 1em; margin-right: 8px" />
-    <el-icon-search style="width: 1em; height: 1em; margin-right: 8px" />
+  <p>
+    <el-button @click="changeComp('ChooseIconComp')">图标选择</el-button>
+    <el-button @click="changeComp('ChooseAreaComp')">省市区选择</el-button>
+  </p>
+  <div class="async-comp" v-show="!isShowChooseArea">
+    <keep-alive>
+      <component :is="currentComp" />
+    </keep-alive>
   </div>
+  <m-choose-area v-show="isShowChooseArea" @choose-area="chooseArea" />
 </template>
 
 <style scoped lang="scss"></style>

@@ -34,8 +34,8 @@ export default defineConfig(({ mode }) => {
         }
       }),
       Components({
-        dirs: ["src/components"],
-        dts: "src/components.d.ts",
+        dirs: ["components"],
+        dts: "components.d.ts",
         resolvers: [ElementPlusResolver()]
       })
     ],
