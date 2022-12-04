@@ -34,9 +34,7 @@ export default defineConfig(({ mode }) => {
         }
       }),
       Components({
-        dirs: ["components"],
-        dts: "components.d.ts",
-        resolvers: [ElementPlusResolver()]
+        resolvers: [ElementPlusResolver()] //0.1.x版本有代码提示
       })
     ],
     resolve: {
